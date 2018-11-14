@@ -1,24 +1,25 @@
 #! /bin/bash
-# numbers.sh
-# Aaron Shabanian
+#numbers.sh
+#Aaron Shabanian
 
-echo "Enter a Positive Number."
-read NUM
-while echo $NUM | egrep -v "[0-9$]" > /dev/null 2>&1
-do
-	echo "You must enter a positive number"
-	echo "Try again"
-	read NUM
-done
-N=$1
-while [$num -le $N]
-do
-	if [ $((N%2)) -eq 0]
-	then
-		echo "$N even"
-		num=$((num+1))
-	else
-		echo "$N odd"
-		num=$((num+1))
-	fi
-done
+number=1
+
+echo "Enter a positive number: "
+read NUM 
+
+if ((NUM > 1))
+then 
+	while ((number < $((NUM+1))))
+	do
+		if [ $((number % 2)) -eq 0 ]
+		then 
+			echo $number Even
+			number=$((number+1))
+		else
+			echo $number Odd
+			number=$((number+1))
+		fi
+	done
+else
+	echo "Please enter a number higher than 0"
+fi 
